@@ -23,20 +23,9 @@ UTILS = (function () {
 		copy: function (str) {
 			WW.system("/bin/echo -n '" + str + "' | /usr/bin/pbcopy", function () {});
 		},
-		/**
-		 * Go to an external URL (use PHPFR.ui.followLink for internal links)
-		 * @param string url URL of the page to go to
-		 */
-		gotoURL: function (url) {
-			if ('undefined' === typeof WW) {
-				location.href = url;
-			} else {
-				WW.openURL(url);
-			}
-		},
 		// go to donation link
 		gotoPayPal: function () {
-			PHPFR.util.gotoURL(_paypal);
+			WW.openURL(_paypal);
 		}
 	};
 })();
@@ -47,6 +36,4 @@ __ = function (string) {
 };
 
 // Shortcut to go to an external URL, e.g., go('http://code.google.com/p/jquery-reference/')
-go = function (url) {
-	UTILS.gotoURL(url);
-};
+go = WW.openURL;
