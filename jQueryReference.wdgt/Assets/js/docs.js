@@ -17,6 +17,7 @@ DOCS = (function () {
 		load: function () {
 			var xml, xsl, xsltp, frag;
 			
+			/*
 			$.ajax({
 				async    : false,
 				dataType : 'xml',
@@ -46,6 +47,9 @@ DOCS = (function () {
 			frag  = xsltp.transformToFragment(xml, document);
 			
 //			DEBUG.reveal(frag);
+			*/
+			
+			$('#transformResult').xslt(_urls.xml, _urls.xsl);
 			
 		},
 		update: function () {
