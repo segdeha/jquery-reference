@@ -6,7 +6,7 @@
 
 UTILS = (function () {
 	var _paypal;
-	_paypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andrew%40hedges%2ename&item_name=PHP%20Function%20Reference&amount=5%2e00&no_shipping=1&cn=Send%20a%20note%20to%20the%20developers&tax=0&currency_code=EUR&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8';
+	_paypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andrew%40hedges%2ename&item_name=jQuery%20Reference%20Widget&amount=5%2e00&no_shipping=1&cn=Say%20%27hi%27%20to%20the%20developer%21&tax=0&currency_code=EUR&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8';
 	return {
 		/**
 		 * Localize a string (based on a function in Apple's Dashcode)

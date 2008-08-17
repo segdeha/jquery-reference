@@ -13,7 +13,26 @@ WW = window.widget;
 // Main initialization routine
 MAIN = (function () {
 	return {
+		// e.g., /Users/andrew/Library/Widgets/jQuery Reference.wdgt
+		base: (function () {
+			var base;
+			base = document.location.href.substring(7, document.location.href.length - 13);
+			// Work around differences in Tiger versus Leopard
+			if (/^sers/.test(base)) {
+				base = '/U' + base;
+			} else if (/^ibrary/.test(base)) {
+				base = '/L' + base;
+			}
+			if (/^\/Users/.test(base) || /^\/Library/.test(base)) {
+				return base;
+			} else {
+				DEBUG.write('ERROR: base = ' + base);
+				return '';
+			}
+		})(),
 		init: function () {
+			
+			DOCS.load();
 			
 		}
 	};

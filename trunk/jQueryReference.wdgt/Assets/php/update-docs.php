@@ -7,6 +7,9 @@
 // might need this if there are redirects going on: CURLOPT_FOLLOWLOCATION
 // if we use the above, we may need to set CURLOPT_MAXREDIRS
 
+// add stylesheet declaration as 2nd line
+// <?xml-stylesheet type="text/xsl" href="your_transform_file_here.xsl" ?>
+
 $dir   = substr(__FILE__, 0, -22) . 'php_manual/';
 $tar   = 'tar --directory %s -xzf ';
 
