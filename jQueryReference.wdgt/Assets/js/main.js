@@ -1,29 +1,14 @@
 /*	main.js
-	Widget initialization and utility methods
+	Widget initialization
 	Andrew Hedges, andrew@hedges.name, unless otherwise noted
+	2008-08-17
+	Project home: http://code.google.com/p/jquery-reference/
+	Widget home:  http://andrew.hedges.name/widgets/#jqueryreference
 */
 
 var WW, MAIN;
 
 WW = window.widget;
-
-// Localize a string, e.g., 'My String'.localize()
-String.prototype.localize = function () {
-	try { var string = localizedStrings[this] || this; } catch (e) {}
-	return string;
-};
-
-// Shortcut to localize a string, e.g., __('My String')
-__ = function (str) {
-	return str.localize();
-};
-
-// Copy string data to the pasteboard
-String.prototype.copy = function () {
-	var handler;
-	handler = function () {};
-	widget.system("/bin/echo -n '" + this + "' | /usr/bin/pbcopy", handler);
-};
 
 // Main initialization routine
 MAIN = (function () {
