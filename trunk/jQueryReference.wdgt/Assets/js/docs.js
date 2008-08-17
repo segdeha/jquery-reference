@@ -15,7 +15,7 @@ DOCS = (function () {
 	// public members
 	return {
 		load: function () {
-			$('#transformResult').xslt(_urls.xml, _urls.xsl);
+			$('#front .content').xslt(_urls.xml, _urls.xsl);
 		},
 		update: function () {
 			
