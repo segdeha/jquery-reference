@@ -6,12 +6,10 @@
 	Widget home:  http://andrew.hedges.name/widgets/#jqueryreference
 */
 
-var WW, MAIN;
-
-WW = window.widget;
+var WW = window.widget;
 
 // Main initialization routine
-MAIN = (function () {
+var MAIN = (function () {
 	return {
 		// e.g., /Users/andrew/Library/Widgets/jQuery Reference.wdgt
 		base: (function () {
@@ -31,9 +29,8 @@ MAIN = (function () {
 			}
 		})(),
 		init: function () {
-			
 			DOCS.load();
-			
+			VERSION.init();
 		}
 	};
 })();
