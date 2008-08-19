@@ -8,7 +8,7 @@
 	<xsl:template match="cat">
 		<ul id="navigation">
 			<li>
-				<a href="#"><xsl:value-of select="."/></a>
+				<a href="#"><xsl:value-of select="@value"/></a>
 				<ul>
 					<xsl:apply-templates select="subcat"/>
 				</ul>
@@ -26,11 +26,11 @@
 	</xsl:template>
 	
 	<xsl:template match="subcat">
-		<li><xsl:value-of select="."/></li>
+		<li><xsl:value-of select="@value"/></li>
 	</xsl:template>
 	
 	<xsl:template match="function">
-		<li><xsl:value-of select="."/></li>
+		<li><xsl:value-of select="@value"/></li>
 	</xsl:template>
 
 </xsl:stylesheet>
