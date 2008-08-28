@@ -28,9 +28,9 @@ var DOCS = (function () {
 	return {
 		load: function () {
 //			$('#nav').xslt(_urls.xml.full, _urls.xsl.nav);
-//			$('#main').xslt(_urls.xml.full, _urls.xsl.main);
+			$('#main').xslt(_urls.xml.full, _urls.xsl.main);
 			
-			$('#nav').xslt(_urls.xml.simple, _urls.xsl.nav);
+//			$('#nav').xslt(_urls.xml.simple, _urls.xsl.nav);
 //			$('#main').xslt(_urls.xml.simple, _urls.xsl.main);
 			
 			DEBUG.write($('.content').html());
