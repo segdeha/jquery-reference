@@ -1,7 +1,17 @@
 #front {
+	font: 10px/1.2 "Lucida Grande";
 	width: 490px;
 	height: 490px;
 	background: white url(../../Default.png) no-repeat;
 	border: solid 1px black;
 	overflow: scroll;
+	padding: 30px 10px;
+}
+#nav {
+	width: 100px;
+	float: left;
+}
+#main {
+	width: 370px;
+	float: left;
 }

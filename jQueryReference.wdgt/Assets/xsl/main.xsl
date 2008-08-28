@@ -9,7 +9,7 @@
 
 	<xsl:template match="/docs/cat">
 		<li>
-			<a><xsl:value-of select="@value"/></a>
+			<xsl:value-of select="@value"/>
 			<ul>
 				<xsl:apply-templates select="subcat"/>
 			</ul>
@@ -18,7 +18,7 @@
 	
 	<xsl:template match="subcat">
 		<li>
-			<a><xsl:value-of select="@value"/></a>
+			<xsl:value-of select="@value"/>
 			<ul>
 				<xsl:apply-templates select="function"/>
 			</ul>
@@ -27,9 +27,23 @@
 
 	<xsl:template match="function">
 		<li>
+			<h2>
+				<span class="returns">Returns: <xsl:value-of select="@return"/></span>
+				<xsl:value-of select="@name"/>(
+				<xsl:for-each select="./params">
+					<xsl:choose>
+						<xsl:when test="./@optional='true'">
+							<xsl:value-of select="@name"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<strong><xsl:value-of select="@name"/></strong>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:for-each>
+				)
+			</h2>
 			<p>
-				Name: <xsl:value-of select="@name"/>
-				Returns: <xsl:value-of select="@return"/><br/>
+				<xsl:value-of select="./desc"/>
 			</p>
 		</li>
 	</xsl:template>
