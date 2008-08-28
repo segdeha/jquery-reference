@@ -33,17 +33,20 @@
 				<xsl:for-each select="./params">
 					<xsl:choose>
 						<xsl:when test="./@optional='true'">
-							<xsl:value-of select="@name"/>
+							<span class="param optional">[<xsl:value-of select="@name"/>]</span>
 						</xsl:when>
 						<xsl:otherwise>
-							<strong><xsl:value-of select="@name"/></strong>
+							<span class="param"><xsl:value-of select="@name"/></span>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:for-each>
 				)
 			</h2>
-			<p>
+			<p class="desc">
 				<xsl:value-of select="./desc"/>
+			</p>
+			<p class="longdesc">
+				<xsl:value-of select="./longdesc"/>
 			</p>
 		</li>
 	</xsl:template>
