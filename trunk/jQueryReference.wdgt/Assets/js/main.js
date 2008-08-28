@@ -36,6 +36,4 @@ var MAIN = (function () {
 })();
 
 // Initialize the widget when the document is ready
-$(function () {
-	MAIN.init();
-});
+$(MAIN.init);

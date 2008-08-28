@@ -1,5 +1,6 @@
 #front {
-	width: 400px;
-	height: 400px;
+	width: 490px;
+	height: 490px;
 	background: white url(../../Default.png) no-repeat;
+	border: solid 1px black;
 }
