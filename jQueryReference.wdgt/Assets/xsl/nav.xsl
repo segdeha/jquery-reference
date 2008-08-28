@@ -2,20 +2,22 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="/">
-		<xsl:apply-templates/> 
+		<ul id="navigation">
+			<xsl:apply-templates select="/docs/cat"/>
+		</ul>
 	</xsl:template>
-	
-	<ul id="navigation">
+
+	<xsl:template match="/docs/cat">
 		<li>
-			<a href="#"><xsl:value-of select="@value"/></a>
+			<a><xsl:value-of select="@value"/></a>
 			<ul>
 				<xsl:apply-templates select="subcat"/>
 			</ul>
 		</li>
-	</ul>
+	</xsl:template>
 	
 	<xsl:template match="subcat">
-		<li><xsl:value-of select="@value"/></li>
+		<li><a><xsl:value-of select="@value"/></a></li>
 	</xsl:template>
 	
 </xsl:stylesheet>
