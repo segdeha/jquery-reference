@@ -11,7 +11,7 @@
 
 	<xsl:template match="/docs/cat">
 		<li class="cat">
-			<xsl:value-of select="@value"/>
+			<a><xsl:value-of select="@value"/></a>
 			<ul class="subcat">
 				<xsl:apply-templates select="subcat"/>
 			</ul>
