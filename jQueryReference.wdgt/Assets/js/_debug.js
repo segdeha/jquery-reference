@@ -3,7 +3,6 @@ var DEBUG;
 DEBUG = (function () {
 	return {
 		write: function (s) {
-			alert('----------------------------------------------------------');
 			alert(s);
 		},
 		reveal: function (o) {
