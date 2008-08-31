@@ -15,8 +15,9 @@ var DOCS = (function () {
 	_urls = {
 		xml : MAIN.base + '/Assets/xml/api-docs.xml',
 		xsl : {
-			nav  : MAIN.base + '/Assets/xsl/nav.xsl',
-			main : MAIN.base + '/Assets/xsl/main.xsl'
+			nav     : MAIN.base + '/Assets/xsl/nav.xsl',
+			main    : MAIN.base + '/Assets/xsl/main.xsl',
+			version : MAIN.base + '/Assets/xsl/version.xsl'
 		}
 	};
 	
@@ -29,6 +30,7 @@ var DOCS = (function () {
 		if (obj.outputString.indexOf('SUCCESS') > -1) {
 			// success
 			DOCS.init();
+			$('#ajax-loader').hide();
 		} else {
 			// error
 		}
@@ -46,6 +48,7 @@ var DOCS = (function () {
 			$('#main').xslt(_urls.xml, _urls.xsl.main, function () {
 				++_returns;
 			});
+			$('#version').xslt(_urls.xml, _urls.xsl.version);
 			// Initialise the UI once both XSLTs have returned
 			timer = setInterval(function () {
 				if (_returns > 1) {
@@ -58,6 +61,7 @@ var DOCS = (function () {
 		/*	Update the widget with the latest docs from code.google.com
 		*/
 		update: function () {
+			$('#ajax-loader').show();
 			WW.system(MAIN.base + '/Assets/php/update-docs.php', _callback);
 		}
 	};
