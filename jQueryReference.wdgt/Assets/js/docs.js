@@ -12,10 +12,7 @@ var DOCS = (function () {
 	;
 	
 	_urls = {
-		xml : {
-			full   : MAIN.base + '/Assets/xml/api-docs.xml',
-			simple : MAIN.base + '/Assets/xml/simple.xml'
-		},
+		xml : MAIN.base + '/Assets/xml/api-docs.xml',
 		xsl : {
 			nav  : MAIN.base + '/Assets/xsl/nav.xsl',
 			main : MAIN.base + '/Assets/xsl/main.xsl'
@@ -39,17 +36,8 @@ var DOCS = (function () {
 		/*	Initialise documentation by transforming the API XML to HTML and dumping it into container DIVs
 		*/
 		init: function () {
-			$('#main').xslt(_urls.xml.full, _urls.xsl.main);
-			$('#nav').xslt(_urls.xml.full, _urls.xsl.nav, UI.init);
-			
-//			$('#nav').xslt(_urls.xml.simple, _urls.xsl.nav);
-//			$('#main').xslt(_urls.xml.simple, _urls.xsl.main);
-			
-//			$('#nav').xslt({xmlUrl: _urls.xml.full, xslUrl: _urls.xsl.nav});
-//			$('#main').xslt({xmlUrl: _urls.xml.full, xslUrl: _urls.xsl.main});
-			
-			// Initialise the UI now that the HTML is in place
-//			UI.init();
+			$('#main').xslt(_urls.xml, _urls.xsl.main);
+			$('#nav').xslt(_urls.xml, _urls.xsl.nav, UI.init); // activate UI once nav is attached to the DOM
 		},
 		/*	Update the widget with the latest docs from code.google.com
 		*/
