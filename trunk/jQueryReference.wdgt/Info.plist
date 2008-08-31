@@ -19,9 +19,9 @@
 		<key>MainHTML</key>
 		<string>Default.html</string>
 		<key>Width</key>
-		<integer>500</integer>
+		<integer>530</integer>
 		<key>Height</key>
-		<integer>500</integer>
+		<integer>550</integer>
 		<key>AllowSystem</key>
 		<true/>
 		<key>AllowNetworkAccess</key>

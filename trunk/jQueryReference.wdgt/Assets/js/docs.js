@@ -39,11 +39,17 @@ var DOCS = (function () {
 		/*	Initialise documentation by transforming the API XML to HTML and dumping it into container DIVs
 		*/
 		init: function () {
-//			$('#nav').xslt(_urls.xml.full, _urls.xsl.nav);
-//			$('#main').xslt(_urls.xml.full, _urls.xsl.main);
+			$('#main').xslt(_urls.xml.full, _urls.xsl.main);
+			$('#nav').xslt(_urls.xml.full, _urls.xsl.nav, UI.init);
 			
 //			$('#nav').xslt(_urls.xml.simple, _urls.xsl.nav);
-			$('#main').xslt(_urls.xml.simple, _urls.xsl.main);
+//			$('#main').xslt(_urls.xml.simple, _urls.xsl.main);
+			
+//			$('#nav').xslt({xmlUrl: _urls.xml.full, xslUrl: _urls.xsl.nav});
+//			$('#main').xslt({xmlUrl: _urls.xml.full, xslUrl: _urls.xsl.main});
+			
+			// Initialise the UI now that the HTML is in place
+//			UI.init();
 		},
 		/*	Update the widget with the latest docs from code.google.com
 		*/

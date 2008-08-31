@@ -33,7 +33,6 @@ var MAIN = (function () {
 		/*	Main initialisation routine
 		*/
 		init: function () {
-			UI.init();
 			DOCS.init();
 			VERSION.init();
 		}
