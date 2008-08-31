@@ -1,4 +1,4 @@
-#front, #back, #nav, #main, div#flipper, div#resizer, div#version, div#update-docs, div#ajax-loader, div#done-button, div#donate-button, a#house-button {
+#front, #back, #nav, #main, div#flipper, a#resizer, div#version, div#update-docs, div#ajax-loader, div#done-button, div#donate-button, a#house-button {
 	position: absolute;
 }
 #front, #back {
@@ -9,7 +9,7 @@
 	right: 10px;
 	bottom: 20px;
 	left: 10px;
-	background: black url(../img/bg-top.png) no-repeat;
+	background: #0f1924 url(../img/bg-top.png) no-repeat;
 	border: solid 2px black;
 	-webkit-border-radius: 10px;
 	-webkit-box-shadow: #666 0 4px 20px;
@@ -20,7 +20,7 @@
 	right: 10px;
 	bottom: 20px;
 	left: 10px;
-	background: #454545;
+	background: #333;
 	border: solid 2px black;
 	-webkit-border-radius: 10px;
 	-webkit-box-shadow: #666 0 4px 20px;
@@ -83,11 +83,11 @@ h2 { font-size: 20px; }
 h3 { font-size: 16px; }
 h1, h2 {
 	margin: 0;
-	color: #333;
+	color: #0f1924;
 }
 h3 {
 	padding: 0.25em 0.75em;
-	background: #333;
+	background: #0f1924;
 	color: white;
 }
 h3 span.returns {
@@ -115,14 +115,18 @@ div#flipper {
 	width: 12px;
 	height: 12px;
 }
-div#resizer {
-	display: block;
-	bottom: 2px;
-	right: 2px;
-	width: 12px;
-	height: 12px;
-	background: transparent url(/System/Library/WidgetResources/resize.png) no-repeat;
-	-apple-dashboard-region: dashboard-region(control rectangle);
+a#resizer {
+	display: inline-block;
+	bottom: 0;
+	left: 156px;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../img/famfamfam/expand.png) no-repeat;
+	opacity: 0.5;
+	z-index: 100;
+}
+a#resizer:hover {
+	opacity: 1.0;
 }
 div#back a {
 	color: blue;
