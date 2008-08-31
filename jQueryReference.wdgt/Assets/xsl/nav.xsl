@@ -10,16 +10,16 @@
 	</xsl:template>
 
 	<xsl:template match="/docs/cat">
-		<li class="cat">
-			<a><xsl:value-of select="@value"/></a>
-			<ul class="subcat">
+		<li>
+			<a class="cat"><xsl:value-of select="@value"/></a>
+			<ul class="subcats">
 				<xsl:apply-templates select="subcat"/>
 			</ul>
 		</li>
 	</xsl:template>
 	
 	<xsl:template match="subcat">
-		<li><xsl:value-of select="@value"/></li>
+		<li><a class="subcat"><xsl:value-of select="@value"/></a></li>
 	</xsl:template>
 	
 </xsl:stylesheet>

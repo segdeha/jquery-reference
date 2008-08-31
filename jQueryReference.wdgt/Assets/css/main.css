@@ -1,27 +1,29 @@
 #front {
 	font: 11px/1.4 "Lucida Grande";
-	width: 490px;
-	height: 490px;
-	background: white url(../../Default.png) no-repeat;
+	width: 480px;
+	height: 440px;
+	background: black url(../../Default.png) no-repeat;
 	border: solid 1px black;
-	overflow: scroll;
-	padding: 30px 10px;
+	padding: 32px 0;
 }
 #nav {
-	width: 150px;
+	width: 175px;
+	height: 390px;
 	float: left;
+	background: white;
 }
 #main {
-	width: 320px;
+	width: 250px;
+	height: 360px;
 	float: left;
 }
-ul#navigation, ul.subcat {
+ul#navigation, ul.subcats {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	font: 12px/24px "Helvetica Neue", "Lucida Grande", Helvetica, Sans-Serif;
 }
-ul#navigation li.cat a {
+a.cat {
 	display: block;
 	padding: 0 10px;
 	font-weight: bold;
@@ -29,10 +31,27 @@ ul#navigation li.cat a {
 	text-shadow: #ccc 0 1px 1px;
 	background: transparent url(../img/cat-bg-lo.png) repeat-x;
 }
-ul#navigation li.cat a.selected {
+a.cat.selected {
 	color: white;
 	text-shadow: #666 0 1px 1px;
 	background-image: url(../img/cat-bg-hi.png);
+}
+a.subcat {
+	padding-left: 10px;
+	color: blue;
+}
+a.subcat:hover {
+	text-decoration: underline;
+}
+div.cat {
+	background: #fcc;
+}
+div.subcat {
+/*	display: none;*/
+	background: #ccf;
+}
+h1, h2 {
+	margin: 0;
 }
 h2 span.returns {
 	font-weight: normal;

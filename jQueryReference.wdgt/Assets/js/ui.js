@@ -12,14 +12,23 @@ var UI = (function () {
 		// values
 		_elements,
 		// functions
-		_animate
+		_htmlToId
 	;
 	
-	/*	Animate the opening and closing of categories
-		@param obj toOpen DOM object to open at the expense of all others
+	
+	/*	Convert a string to a valid ID
+		@param string str
+		@return string
 	*/
-	_animate = function (toOpen) {
-		
+	_htmlToId = function (str) {
+		str = str.toLowerCase()
+			.replace(/\s/g, '-')
+			.replace(/\$/g, 'dollarsign')
+			.replace('(', 'openparen')
+			.replace(')', 'closeparen')
+			.replace(/\./g, 'dot')
+		;
+		return str;
 	};
 	
 	// public members
@@ -29,37 +38,40 @@ var UI = (function () {
 		init: function () {
 			_elements = {
 				nav : {
-					cats    : $('#navigation li.cat a'),
-					subcats : $('#navigation ul.subcat li')
+					cats    : $('#navigation a.cat'),
+					subcats : $('#navigation a.subcat')
+				},
+				content : {
+					cats      : $('#content div.cat'),
+					subcats   : $('#content div.subcat'),
+					functions : $('#content div.function')
 				}
 			};
-			// hilite first category
-			$(_elements.nav.cats[0]).addClass(SELECTED);
-			// categories
-			$.each(_elements.nav.cats, function () {
-				$(this)
-					.mouseover(function () {
-						$.each(_elements.nav.cats, function () {
-							// remove hilite from other cats
-							$(this).removeClass(SELECTED);
-						});
-						// hilite current category
-						$(this).addClass(SELECTED);
-						// open up this category
-						_animate(this);
-					})
-					.click(function () {
-						
-					})
-				;
+			
+			$('#navigation').accordion({
+				event         : 'mouseover',
+				fillSpace     : true,
+				header        : 'a.cat',
+				selectedClass : 'selected'
 			});
-			// sub-categories
+			
+			// assign IDs to all content sub-categories
+			$.each(_elements.content.subcats, function () {
+				var id;
+				id = 'subcat-' + _htmlToId($('h2', this).html());
+				this.id = id;
+			});
+			
+			// capture clicks on sub-category nav items
 			$.each(_elements.nav.subcats, function () {
-				$(this)
-					.click(function () {
-						
-					})
-				;
+				var selector;
+				selector = '#subcat-' + _htmlToId($(this).html());
+				$(this).click(function () {
+					$.each(_elements.content.subcats, function () {
+						$(this).hide();
+					});
+					$(selector).show();
+				});
 			});
 		}
 	};
