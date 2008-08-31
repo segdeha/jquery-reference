@@ -508,7 +508,11 @@ $(&quot;content&quot;).style.display = 'none';
 jQuery(&quot;div &gt; p&quot;).hide();</results>
 				</example>
 			</function>
-		</subcat></cat><cat value="Selectors"><subcat value="Basics"><selector cat="Selectors" name="id" return="Array&lt;Element&gt;" timestamp="2008-04-12T10:45:53Z"><sample>#id</sample>
+		</subcat></cat>
+	<cat value="Selectors">
+		<subcat value="Basics">
+			<selector cat="Selectors" name="id" return="Array&lt;Element&gt;" timestamp="2008-04-12T10:45:53Z">
+				<sample>#id</sample>
 				<added>1.0</added>
 					<desc>Matches a single element with the given id attribute. </desc>
 				<longdesc>If the id contains characters like periods or colons you have to escape those characters with backslashes [http://docs.jquery.com/Frequently_Asked_Questions#How_do_I_select_an_element_that_has_weird_characters_in_its_ID.3F].</longdesc>
@@ -534,7 +538,8 @@ jQuery(&quot;div &gt; p&quot;).hide();</results>
 					<code>$(&quot;#myID\\.entry\\[1\\]&quot;).css(&quot;border&quot;,&quot;3px solid red&quot;);</code>
 					<html>&lt;div id=&quot;myID.entry[0]&quot;&gt;id=&quot;myID.entry[0]&quot;&lt;/div&gt;
   &lt;div id=&quot;myID.entry[1]&quot;&gt;id=&quot;myID.entry[1]&quot;&lt;/div&gt;
-  &lt;div id=&quot;myID.entry[2]&quot;&gt;id=&quot;myID.entry[2]&quot;&lt;/div&gt;</html><css>
+  &lt;div id=&quot;myID.entry[2]&quot;&gt;id=&quot;myID.entry[2]&quot;&lt;/div&gt;</html>
+  <css>
   div {
     width: 300px;
     float:left;
@@ -542,7 +547,10 @@ jQuery(&quot;div &gt; p&quot;).hide();</results>
     margin: 3px;
     background-color: #EEEEEE;
   }
-  </css></example></selector><selector cat="Selectors" name="element" return="Array&lt;Element(s)&gt;" timestamp="2008-05-25T22:30:44Z"><sample>element</sample>
+  </css>
+</example>
+</selector>
+<selector cat="Selectors" name="element" return="Array&lt;Element(s)&gt;" timestamp="2008-05-25T22:30:44Z"><sample>element</sample>
 				<added>1.0</added>
 					<desc>Matches all elements with the given name. </desc>
 				<longdesc></longdesc>

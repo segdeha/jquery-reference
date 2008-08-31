@@ -1,6 +1,6 @@
 #front {
 	font: 11px/1.4 "Lucida Grande";
-	width: 480px;
+	width: 680px;
 	height: 440px;
 	background: black url(../../Default.png) no-repeat;
 	border: solid 1px black;
@@ -13,9 +13,10 @@
 	background: white;
 }
 #main {
-	width: 250px;
+	width: 440px;
 	height: 360px;
 	float: left;
+	background: white;
 }
 ul#navigation, ul.subcats {
 	padding: 0;
@@ -47,14 +48,28 @@ div.cat {
 	background: #fcc;
 }
 div.subcat {
-/*	display: none;*/
-	background: #ccf;
+	display: none;
+	background: white;
+	padding: 10px;
 }
 h1, h2 {
 	margin: 0;
 }
-h2 span.returns {
+h3 span.returns {
 	font-weight: normal;
 	display: inline-block;
 	float: right;
+}
+h3 span.params {
+	white-space: pre;
+}
+h3 span.param {
+	font-weight: normal;
+}
+h3 span.param.optional {
+	color: #666;
+}
+div.code, div.html {
+	font-family: "Andale Mono", Monaco, Monospace;
+	white-space: pre;
 }
