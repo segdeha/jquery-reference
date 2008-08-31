@@ -75,35 +75,35 @@ var UI = (function () {
 	_toggleDocs = function (a) {
 		if (SHOWDOCS === a.title) {
 			// expand docs window
-			_showDocs();
-			$(a)
-				// change title to HIDEDOCS
-				.attr('title', __(HIDEDOCS))
-				// change icon to contract
-				.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/contract.png)')
-			;
+			_showDocs(a);
 		} else {
 			// contract docs window
-			_hideDocs();
-			$(a)
-				// change title to SHOWDOCS
-				.attr('title', __(SHOWDOCS))
-				// change icon to expand
-				.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/expand.png)')
-			;
+			_hideDocs(a);
 		}
 	};
 	
 	/*	Show the docs window
 	*/
-	_showDocs = function () {
+	_showDocs = function (a) {
 		window.resizeTo(_sizes.open.width, _sizes.open.height);
+		$(a)
+			// change title to HIDEDOCS
+			.attr('title', __(HIDEDOCS))
+			// change icon to contract
+			.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/contract.png)')
+		;
 	};
 	
 	/*	Hide the docs window
 	*/
-	_hideDocs = function () {
+	_hideDocs = function (a) {
 		window.resizeTo(_sizes.closed.width, _sizes.closed.height);
+		$(a)
+			// change title to SHOWDOCS
+			.attr('title', __(SHOWDOCS))
+			// change icon to expand
+			.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/expand.png)')
+		;
 	};
 	
 	// public members
