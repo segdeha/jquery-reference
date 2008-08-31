@@ -148,7 +148,7 @@ var UI = (function () {
 				var selector;
 				selector = '#subcat-' + _htmlToId($(this).html());
 				$(this).click(function () {
-					_showDocs();
+					_showDocs($('a#resizer'));
 					$.each(_elements.content.subcats, function () {
 						$(this).hide();
 					});

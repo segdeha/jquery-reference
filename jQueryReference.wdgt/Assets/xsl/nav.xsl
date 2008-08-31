@@ -8,7 +8,7 @@
 			<xsl:apply-templates select="/docs/cat"/>
 		</ul>
 	</xsl:template>
-
+	
 	<xsl:template match="/docs/cat">
 		<li>
 			<a class="cat"><xsl:value-of select="@value"/></a>
