@@ -8,6 +8,7 @@ var DOCS = (function () {
 	// private members
 	var
 		_urls,
+		_returns,
 		_callback
 	;
 	
@@ -18,6 +19,8 @@ var DOCS = (function () {
 			main : MAIN.base + '/Assets/xsl/main.xsl'
 		}
 	};
+	
+	_returns = 0;
 	
 	/*	Function called when docs are done updating
 		@param obj obj
@@ -36,8 +39,21 @@ var DOCS = (function () {
 		/*	Initialise documentation by transforming the API XML to HTML and dumping it into container DIVs
 		*/
 		init: function () {
-			$('#main').xslt(_urls.xml, _urls.xsl.main);
-			$('#nav').xslt(_urls.xml, _urls.xsl.nav, UI.init); // activate UI once nav is attached to the DOM
+			var timer;
+			$('#nav').xslt(_urls.xml, _urls.xsl.nav, function () {
+				++_returns;
+			});
+			$('#main').xslt(_urls.xml, _urls.xsl.main, function () {
+				++_returns;
+			});
+			// Initialise the UI once both XSLTs have returned
+			timer = setInterval(function () {
+				if (_returns > 1) {
+					clearInterval(timer);
+					_returns = 0; // reset value in case user updates docs
+					UI.init();
+				}
+			}, 20);
 		},
 		/*	Update the widget with the latest docs from code.google.com
 		*/

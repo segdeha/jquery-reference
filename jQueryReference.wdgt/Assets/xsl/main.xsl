@@ -69,9 +69,10 @@
 				<span class="name"><xsl:value-of select="@name"/></span>
 				<span class="params">( <xsl:for-each select="./params">
 					<xsl:choose>
-						<xsl:when test="./@optional='true'"><span class="param optional">[<xsl:value-of select="@name"/>], </span></xsl:when>
-						<xsl:otherwise><span class="param"><xsl:value-of select="@name"/></span>, </xsl:otherwise>
+						<xsl:when test="./@optional='true'"><span class="param optional">[<xsl:value-of select="@name"/>]</span></xsl:when>
+						<xsl:otherwise><span class="param"><xsl:value-of select="@name"/></span></xsl:otherwise>
 					</xsl:choose>
+					<xsl:if test="position() != last()">, </xsl:if>
 				</xsl:for-each> )</span>
 			</h3>
 			<p class="desc">
