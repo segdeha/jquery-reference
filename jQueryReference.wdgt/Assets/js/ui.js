@@ -16,13 +16,17 @@ var UI = (function () {
 		TOBACK   = 'ToBack',
 		TOFRONT  = 'ToFront',
 		SELECTED = 'selected',
+		SHOWDOCS = 'Show docs window',
+		HIDEDOCS = 'Hide docs window',
 		// values
 		_sizes,
 		_state,
 		_elements,
 		// functions
 		_htmlToId,
-		_writeUpdateBlurb
+		_writeUpdateBlurb,
+		_showDocs,
+		_hideDocs
 	;
 	
 	_sizes = {
@@ -64,6 +68,42 @@ var UI = (function () {
 			'<div id="ajax-loader"></div>'
 		];
 		$('#update-docs').html(tmpl.join(''));
+	};
+	
+	/*	Toggle visibility of the docs window
+	*/
+	_toggleDocs = function (a) {
+		if (SHOWDOCS === a.title) {
+			// expand docs window
+			_showDocs();
+			$(a)
+				// change title to HIDEDOCS
+				.attr('title', __(HIDEDOCS))
+				// change icon to contract
+				.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/contract.png)')
+			;
+		} else {
+			// contract docs window
+			_hideDocs();
+			$(a)
+				// change title to SHOWDOCS
+				.attr('title', __(SHOWDOCS))
+				// change icon to expand
+				.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/expand.png)')
+			;
+		}
+	};
+	
+	/*	Show the docs window
+	*/
+	_showDocs = function () {
+		window.resizeTo(_sizes.open.width, _sizes.open.height);
+	};
+	
+	/*	Hide the docs window
+	*/
+	_hideDocs = function () {
+		window.resizeTo(_sizes.closed.width, _sizes.closed.height);
 	};
 	
 	// public members
@@ -108,12 +148,21 @@ var UI = (function () {
 				var selector;
 				selector = '#subcat-' + _htmlToId($(this).html());
 				$(this).click(function () {
+					_showDocs();
 					$.each(_elements.content.subcats, function () {
 						$(this).hide();
 					});
 					$(selector).show();
 				});
 			});
+			
+			// activate show/hide docs toggle
+			$('a#resizer')
+				.attr('title', __(SHOWDOCS))
+				.click(function () {
+					_toggleDocs(this);
+				})
+			;
 			
 			// activate apple stuff
 			flipper = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
@@ -126,9 +175,8 @@ var UI = (function () {
 		*/
 		showBack: function () {
 			// animate 300
-			
+			_hideDocs();
 			setTimeout(function () {
-				window.resizeTo(_sizes.closed.width, _sizes.closed.height);
 				WW.prepareForTransition(TOBACK);
 				_elements.widget.front.css({display: NONE});
 				_elements.widget.back.css({display: BLOCK});
@@ -145,7 +193,7 @@ var UI = (function () {
 			_elements.widget.back.css({display: NONE});
 			setTimeout(function () {
 				WW.performTransition();
-				window.resizeTo(_sizes.open.width, _sizes.open.height);
+//				_showDocs();
 			}, 0);
 		}
 	};
