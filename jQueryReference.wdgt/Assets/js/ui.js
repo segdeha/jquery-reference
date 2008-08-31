@@ -9,17 +9,33 @@ var UI = (function () {
 	var
 		// constants
 		NONE     = 'none',
+		OPEN     = 'open',
 		BLOCK    = 'block',
 		WHITE    = 'white',
+		CLOSED   = 'closed',
 		TOBACK   = 'ToBack',
 		TOFRONT  = 'ToFront',
 		SELECTED = 'selected',
 		// values
+		_sizes,
+		_state,
 		_elements,
 		// functions
-		_htmlToId
+		_htmlToId,
+		_writeUpdateBlurb
 	;
 	
+	_sizes = {
+		open   : {
+			width  : 700,
+			height : 500
+		},
+		closed : {
+			width  : 199,
+			height : 500
+		}
+	};
+	_state = OPEN;
 	
 	/*	Convert a string to a valid ID
 		@param string str
@@ -34,6 +50,20 @@ var UI = (function () {
 			.replace(/\./g, 'dot')
 		;
 		return str;
+	};
+	
+	/*	Build and display the blurb on the back of the widget about updating the docs
+		Do this here so we can easily localise the strings.
+	*/
+	_writeUpdateBlurb = function () {
+		var tmpl;
+		tmpl = [
+			'<p>', __('Update to the latest version of the jQuery documentation.'), '</p>',
+			'<p><a onclick="DOCS.update();">', __('Update Now'), '</a></p>',
+			'<p>(', __('Requires internet connection.'), ')</p>',
+			'<div id="ajax-loader"></div>'
+		];
+		$('#update-docs').html(tmpl.join(''));
 	};
 	
 	// public members
@@ -89,19 +119,23 @@ var UI = (function () {
 			flipper = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
 			done    = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
 			donate  = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
+			
+			_writeUpdateBlurb();
 		},
 		/*	Flip the widget over to the back
 		*/
 		showBack: function () {
-//			setTimeout(function () {
-//				window.resizeTo(237, (_resizeValues[1] > 400)? _resizeValues[1] : 400);
+			// animate 300
+			
+			setTimeout(function () {
+				window.resizeTo(_sizes.closed.width, _sizes.closed.height);
 				WW.prepareForTransition(TOBACK);
 				_elements.widget.front.css({display: NONE});
 				_elements.widget.back.css({display: BLOCK});
 				setTimeout(function () {
 					WW.performTransition();
 				}, 0);
-//			}, CLOSEDWIDTH);
+			}, 300);
 		},
 		/*	Flip the widget over to the front
 		*/
@@ -111,7 +145,7 @@ var UI = (function () {
 			_elements.widget.back.css({display: NONE});
 			setTimeout(function () {
 				WW.performTransition();
-//				window.resizeTo(_resizeValues[0], _resizeValues[1]);
+				window.resizeTo(_sizes.open.width, _sizes.open.height);
 			}, 0);
 		}
 	};

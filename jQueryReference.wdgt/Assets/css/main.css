@@ -1,5 +1,7 @@
-#front, #back {
+#front, #back, #nav, #main, div#flipper, div#resizer, div#version, div#update-docs, div#ajax-loader, div#done-button, div#donate-button, a#house-button {
 	position: absolute;
+}
+#front, #back {
 	font: 12px/1.25 "Lucida Grande", Sans-Serif;
 }
 #front {
@@ -18,13 +20,12 @@
 	right: 10px;
 	bottom: 20px;
 	left: 10px;
-	background: black;
+	background: #454545;
 	border: solid 2px black;
 	-webkit-border-radius: 10px;
 	-webkit-box-shadow: #666 0 4px 20px;
 }
 #nav {
-	position: absolute;
 	top: 35px;
 	bottom: 16px;
 	left: 0;
@@ -34,7 +35,6 @@
 	background: #919191;
 }
 #main {
-	position: absolute;
 	top: 35px;
 	right: 0;
 	bottom: 16px;
@@ -42,9 +42,9 @@
 	float: left;
 	background: white;
 	overflow: hidden;
+	border-left: solid 1px #919191;
 }
 ul#navigation, ul.subcats {
-	border-right: solid 1px #919191;
 	background: white;
 	padding: 0;
 	margin: 0;
@@ -109,7 +109,6 @@ div.code, div.html {
 	white-space: pre;
 }
 div#flipper {
-	position: absolute;
 	display: block;
 	bottom: 2px;
 	left: 2px;
@@ -117,7 +116,6 @@ div#flipper {
 	height: 12px;
 }
 div#resizer {
-	position: absolute;
 	display: block;
 	bottom: 2px;
 	right: 2px;
@@ -126,17 +124,59 @@ div#resizer {
 	background: transparent url(/System/Library/WidgetResources/resize.png) no-repeat;
 	-apple-dashboard-region: dashboard-region(control rectangle);
 }
+div#back a {
+	color: blue;
+}
+div#back a:hover {
+	text-decoration: underline;
+}
+div#version {
+	top: 6px;
+	right: 0;
+	left: 0;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+div#update-docs {
+	background: white;
+	border: solid 1px black;
+	text-align: center;
+	padding: 0 10px;
+	top: 24px;
+	right: 10px;
+	left: 10px;
+}
+div#ajax-loader {
+	display: none;
+	background: #666 url(../img/ajax-loader.gif) no-repeat center center;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0.75;
+}
+div#update-docs p {
+	margin: 0.5em 0;
+}
 div#done-button {
-	bottom: 2px;
-	left: 2px;
+	right: 4px;
+	bottom: 4px;
 }
 div#donate-button {
-	bottom: 2px;
-	right: 2px;
+	bottom: 4px;
+	left: 4px;
 }
 a#house-button {
-	display: block;
-	width: 16px;
+	right: 55px;
+	bottom: 6px;
+	left: 66px;
+	display: inline-block;
 	height: 16px;
-	background: transparent url(../img/famfamfam/house.png) no-repeat;
+	background: transparent url(../img/famfamfam/house.png) no-repeat center top;
+	opacity: 0.5;
+	z-index: 100;
+}
+a#house-button:hover {
+	opacity: 1.0;
 }
