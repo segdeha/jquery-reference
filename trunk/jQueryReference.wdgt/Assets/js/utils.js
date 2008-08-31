@@ -19,7 +19,7 @@ var UTILS = (function () {
 			@param string str
 			@return string
 		*/
-		localize: function (string) {
+		localize: function (str) {
 			try {
 				var str = LocalizedStrings[str] || str;
 			} catch (e) {}
@@ -33,18 +33,22 @@ var UTILS = (function () {
 			WW.system("/bin/echo -n '" + str + "' | /usr/bin/pbcopy", function () {});
 		},
 		
+		/*	Go to an URL
+			@param string url
+		*/
+		goto: function (url) {
+			WW.openURL(url);
+		},
+		
 		/*	Take the user to donation link in her default browser
 		*/
 		gotoPayPal: function () {
-			go(_paypal);
+			WW.openURL(_paypal);
 		}
 	};
 })();
 
 // Shortcut to localize a string, e.g., __('My String')
-var __ = function (string) {
-	return UTILS.localize(string);
+var __ = function (str) {
+	return UTILS.localize(str);
 };
-
-// Shortcut to go to an external URL, e.g., go('http://code.google.com/p/jquery-reference/')
-var go = WW.openURL;

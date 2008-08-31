@@ -3,7 +3,11 @@
 	<head>
 		<title>jQuery Reference</title>
 		<link rel="stylesheet" href="Assets/css/main.css"/>
-		<!-- others' -->
+		<!-- apple -->
+		<script type="text/javascript" src="/System/Library/WidgetResources/AppleClasses/AppleInfoButton.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/System/Library/WidgetResources/AppleClasses/AppleAnimator.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/System/Library/WidgetResources/AppleClasses/AppleButton.js" charset="utf-8"></script>
+		<!-- jquery -->
 		<script type="text/javascript" src="Assets/js/jquery-1.2.6.pack.js"></script>
 		<script type="text/javascript" src="Assets/js/jquery.scrollto-min.js"></script>
 		<script type="text/javascript" src="Assets/js/jquery.localscroll-min.js"></script>
@@ -21,17 +25,15 @@
 	</head>
 	<body>
 		<div id="front">
-			<div class="chrome">
-				<div class="content">
-					<div id="nav"></div>
-					<div id="main"></div>
-				</div>
-			</div>
+			<div id="nav"></div>
+			<div id="main"></div>
+			<div id="resizer"></div>
+			<div id="flipper"></div>
 		</div>
 		<div id="back">
-			<div class="chrome">
-				<div class="content"></div>
-			</div>
+			<div id="done-button"></div>
+			<a id="house-button" onclick="UTILS.goto('http://andrew.hedges.name/widgets/#jqueryreference');" title="andrew.hedge.name/widgets"></a>
+			<div id="donate-button"></div>
 		</div>
 	</body>
 </html>

@@ -1,24 +1,51 @@
+#front, #back {
+	position: absolute;
+	font: 12px/1.25 "Lucida Grande", Sans-Serif;
+}
 #front {
-	font: 11px/1.4 "Lucida Grande";
-	width: 680px;
-	height: 440px;
-	background: black url(../../Default.png) no-repeat;
-	border: solid 1px black;
-	padding: 32px 0;
+	top: 10px;
+	right: 10px;
+	bottom: 20px;
+	left: 10px;
+	background: black url(../img/bg-top.png) no-repeat;
+	border: solid 2px black;
+	-webkit-border-radius: 10px;
+	-webkit-box-shadow: #666 0 4px 20px;
+}
+#back {
+	display: none;
+	top: 10px;
+	right: 10px;
+	bottom: 20px;
+	left: 10px;
+	background: black;
+	border: solid 2px black;
+	-webkit-border-radius: 10px;
+	-webkit-box-shadow: #666 0 4px 20px;
 }
 #nav {
+	position: absolute;
+	top: 35px;
+	bottom: 16px;
+	left: 0;
 	width: 175px;
-	height: 390px;
 	float: left;
-	background: white;
+	font-size: 11px;
+	background: #919191;
 }
 #main {
-	width: 440px;
-	height: 360px;
+	position: absolute;
+	top: 35px;
+	right: 0;
+	bottom: 16px;
+	left: 175px;
 	float: left;
 	background: white;
+	overflow: hidden;
 }
 ul#navigation, ul.subcats {
+	border-right: solid 1px #919191;
+	background: white;
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -52,8 +79,16 @@ div.subcat {
 	background: white;
 	padding: 10px;
 }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
 h1, h2 {
 	margin: 0;
+	color: #333;
+}
+h3 {
+	padding: 0.25em 0.75em;
+	background: #333;
+	color: white;
 }
 h3 span.returns {
 	font-weight: normal;
@@ -67,9 +102,41 @@ h3 span.param {
 	font-weight: normal;
 }
 h3 span.param.optional {
-	color: #666;
+	color: #ccc;
 }
 div.code, div.html {
 	font-family: "Andale Mono", Monaco, Monospace;
 	white-space: pre;
+}
+div#flipper {
+	position: absolute;
+	display: block;
+	bottom: 2px;
+	left: 2px;
+	width: 12px;
+	height: 12px;
+}
+div#resizer {
+	position: absolute;
+	display: block;
+	bottom: 2px;
+	right: 2px;
+	width: 12px;
+	height: 12px;
+	background: transparent url(/System/Library/WidgetResources/resize.png) no-repeat;
+	-apple-dashboard-region: dashboard-region(control rectangle);
+}
+div#done-button {
+	bottom: 2px;
+	left: 2px;
+}
+div#donate-button {
+	bottom: 2px;
+	right: 2px;
+}
+a#house-button {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../img/famfamfam/house.png) no-repeat;
 }
