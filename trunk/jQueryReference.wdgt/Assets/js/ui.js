@@ -131,6 +131,14 @@ var UI = (function () {
 				}
 			};
 			
+			// activate apple stuff
+			flipper    = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
+			done       = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
+			donate     = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
+			scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
+			scrollarea = new AppleScrollArea($('#main')[0]);
+			scrollarea.addScrollbar(scrollbar);
+			
 			$('#navigation').accordion({
 				event         : 'mouseover',
 				fillSpace     : true,
@@ -155,6 +163,7 @@ var UI = (function () {
 						$(this).hide();
 					});
 					$(selector).show();
+					scrollarea.refresh();
 				});
 			});
 			
@@ -165,14 +174,6 @@ var UI = (function () {
 					_toggleDocs(this);
 				})
 			;
-			
-			// activate apple stuff
-			flipper    = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
-			done       = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
-			donate     = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
-			scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
-			scrollarea = new AppleScrollArea($('#main')[0]);
-			scrollarea.addScrollbar(_scrolls.func.bar);
 			
 			_writeUpdateBlurb();
 		},
