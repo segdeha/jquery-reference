@@ -52,3 +52,8 @@ var UTILS = (function () {
 var __ = function (str) {
 	return UTILS.localize(str);
 };
+
+// Shortcut to UTILS.go
+var _go = function (url) {
+	UTILS.go(url);
+};
