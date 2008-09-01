@@ -92,11 +92,13 @@ var UI = (function () {
 			// change icon to contract
 			.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/contract.png)')
 		;
+		$('div#scrollbar').show();
 	};
 	
 	/*	Hide the docs window
 	*/
 	_hideDocs = function (a) {
+		$('div#scrollbar').hide();
 		window.resizeTo(_sizes.closed.width, _sizes.closed.height);
 		$(a)
 			// change title to SHOWDOCS
@@ -111,7 +113,7 @@ var UI = (function () {
 		/*	Initialise UI behaviours
 		*/
 		init: function () {
-			var flipper, donate, done;
+			var flipper, donate, done, scrollbar, scrollarea;
 			
 			_elements = {
 				widget : {
@@ -165,9 +167,12 @@ var UI = (function () {
 			;
 			
 			// activate apple stuff
-			flipper = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
-			done    = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
-			donate  = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
+			flipper    = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
+			done       = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
+			donate     = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
+			scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
+			scrollarea = new AppleScrollArea($('#main')[0]);
+			scrollarea.addScrollbar(_scrolls.func.bar);
 			
 			_writeUpdateBlurb();
 		},
