@@ -36,7 +36,7 @@ var UTILS = (function () {
 		/*	Go to an URL
 			@param string url
 		*/
-		goto: function (url) {
+		gotoUrl: function (url) {
 			WW.openURL(url);
 		},
 		
