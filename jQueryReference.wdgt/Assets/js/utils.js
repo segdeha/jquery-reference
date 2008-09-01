@@ -36,7 +36,7 @@ var UTILS = (function () {
 		/*	Go to an URL
 			@param string url
 		*/
-		go: function (url) {
+		gotoUrl: function (url) {
 			WW.openURL(url);
 		},
 		
@@ -55,5 +55,5 @@ var __ = function (str) {
 
 // Shortcut to UTILS.go
 var _go = function (url) {
-	UTILS.go(url);
+	UTILS.gotoUrl(url);
 };
