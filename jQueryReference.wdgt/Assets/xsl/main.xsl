@@ -63,7 +63,7 @@
 		</div>
 	</xsl:template>
 	
-	<xsl:template match="function">
+	<xsl:template match="selector">
 		<div class="selector">
 			<h3>
 				<span class="returns">Returns: <xsl:value-of select="@return"/></span>

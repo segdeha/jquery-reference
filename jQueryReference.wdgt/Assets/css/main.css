@@ -1,4 +1,4 @@
-#front, #back, #nav, #main, div#scrollbar, div#flipper, a#resizer, div#version, div#update-docs, div#ajax-loader, div#done-button, div#donate-button, a#house-button {
+#front, #back, #nav, #main, div#scrollbar, div#flipper, a#resizer, div#version, div#update-docs, div#propaganda, div#ajax-loader, div#done-button, div#donate-button, a#house-button {
 	position: absolute;
 }
 #front, #back {
@@ -79,8 +79,8 @@ div.subcat {
 	background: white;
 	padding: 10px;
 }
-h2 { font-size: 20px; }
-h3 { font-size: 16px; }
+h2 { font-size: 18px; }
+h3 { font-size: 14px; }
 h1, h2 {
 	margin: 0;
 	color: #0f1924;
@@ -94,6 +94,7 @@ h3 span.returns {
 	font-weight: normal;
 	display: inline-block;
 	float: right;
+	font-size: 12px;
 }
 h3 span.params {
 	white-space: pre;
@@ -128,11 +129,11 @@ div#flipper {
 }
 a#resizer {
 	display: inline-block;
-	bottom: 0;
-	left: 156px;
-	width: 16px;
-	height: 16px;
-	background: transparent url(../img/famfamfam/expand.png) no-repeat;
+	bottom: 1px;
+	left: 158px;
+	width: 13px;
+	height: 13px;
+	background: transparent url(../img/drawer-open.png) no-repeat;
 	opacity: 0.5;
 	z-index: 100;
 }
@@ -162,6 +163,9 @@ div#update-docs {
 	right: 10px;
 	left: 10px;
 }
+div#update-docs p {
+	margin: 0.5em 0;
+}
 div#ajax-loader {
 	display: none;
 	background: #666 url(../img/ajax-loader.gif) no-repeat center center;
@@ -171,8 +175,17 @@ div#ajax-loader {
 	left: 0;
 	opacity: 0.75;
 }
-div#update-docs p {
-	margin: 0.5em 0;
+div#propaganda {
+	top: 150px;
+	right: 10px;
+	bottom: 38px;
+	left: 10px;
+	background: #ccc;
+	color: #666;
+	border: solid 1px black;
+	padding: 0 10px;
+	text-align: center;
+	overflow: auto;
 }
 div#done-button {
 	right: 4px;

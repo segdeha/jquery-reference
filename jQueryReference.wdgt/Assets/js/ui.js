@@ -70,6 +70,20 @@ var UI = (function () {
 		$('#update-docs').html(tmpl.join(''));
 	};
 	
+	/*	Build and display credits and jQuery propaganda
+		Do this here so we can easily localise the strings.
+	*/
+	_writePropaganda = function () {
+		var tmpl;
+		tmpl = [
+			'<p>', _ed(__('jQuery is the "write less, do more" JavaScript framework.')), '</p>',
+			'<p><a onclick="_go(\'http://www.jquery.com/\');">', __("Visit jQuery.com to learn more."), '</a></p>',
+			'<p>', __('This widget is up-to-date.'), '</p>',
+			'<p>', __('Widget by <a onclick="_go(\'http://andrew.hedges.name/\');">Andrew Hedges</a>'), '</p>'
+		];
+		$('#propaganda').html(tmpl.join(''));
+	};
+	
 	/*	Toggle visibility of the docs window
 	*/
 	_toggleDocs = function (a) {
@@ -90,7 +104,7 @@ var UI = (function () {
 			// change title to HIDEDOCS
 			.attr('title', __(HIDEDOCS))
 			// change icon to contract
-			.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/contract.png)')
+			.css('background-image', 'url(' + MAIN.base + '/Assets/img/drawer-close.png)')
 		;
 		$('div#scrollbar').show();
 	};
@@ -104,7 +118,7 @@ var UI = (function () {
 			// change title to SHOWDOCS
 			.attr('title', __(SHOWDOCS))
 			// change icon to expand
-			.css('background-image', 'url(' + MAIN.base + '/Assets/img/famfamfam/expand.png)')
+			.css('background-image', 'url(' + MAIN.base + '/Assets/img/drawer-open.png)')
 		;
 	};
 	
@@ -180,6 +194,7 @@ var UI = (function () {
 				;
 				
 				_writeUpdateBlurb();
+				_writePropaganda();
 			}
 		},
 		/*	Flip the widget over to the back
@@ -204,7 +219,6 @@ var UI = (function () {
 			_elements.widget.back.css({display: NONE});
 			setTimeout(function () {
 				WW.performTransition();
-//				_showDocs();
 			}, 0);
 		}
 	};
