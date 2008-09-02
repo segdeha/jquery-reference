@@ -111,8 +111,9 @@ var UI = (function () {
 	// public members
 	return {
 		/*	Initialise UI behaviours
+			@param boolean refresh True if we're just refreshing the docs, not rebuilding the whole UI
 		*/
-		init: function () {
+		init: function (refresh) {
 			var flipper, donate, done, scrollbar, scrollarea;
 			
 			_elements = {
@@ -130,14 +131,6 @@ var UI = (function () {
 					functions : $('#content div.function')
 				}
 			};
-			
-			// activate apple stuff
-			flipper    = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
-			done       = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
-			donate     = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
-			scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
-			scrollarea = new AppleScrollArea($('#main')[0]);
-			scrollarea.addScrollbar(scrollbar);
 			
 			$('#navigation').accordion({
 				event         : 'mouseover',
@@ -167,15 +160,26 @@ var UI = (function () {
 				});
 			});
 			
-			// activate show/hide docs toggle
-			$('a#resizer')
-				.attr('title', __(SHOWDOCS))
-				.click(function () {
-					_toggleDocs(this);
-				})
-			;
-			
-			_writeUpdateBlurb();
+			// don't do these things if we're just refreshing the docs
+			if (true !== refresh) {
+				// activate apple stuff
+				flipper    = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
+				done       = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
+				donate     = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
+				scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
+				scrollarea = new AppleScrollArea($('#main')[0]);
+				scrollarea.addScrollbar(scrollbar);
+				
+				// activate show/hide docs toggle
+				$('a#resizer')
+					.attr('title', __(SHOWDOCS))
+					.click(function () {
+						_toggleDocs(this);
+					})
+				;
+				
+				_writeUpdateBlurb();
+			}
 		},
 		/*	Flip the widget over to the back
 		*/
