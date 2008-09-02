@@ -266,7 +266,7 @@ $.extend($.ui.accordion, {
 			options = $.extend({
 				easing: "swing",
 //				duration: 300
-				duration: 150
+				duration: 200
 			}, options, additions);
 			if ( !options.toHide.size() ) {
 				options.toShow.animate({height: "show"}, options);

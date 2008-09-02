@@ -1,8 +1,7 @@
 <?php
 
-/**
- * Install the latest docs file from code.google.com
- */
+/*	Install the latest docs file from code.google.com
+*/
 
 // might need this if there are redirects going on: CURLOPT_FOLLOWLOCATION
 // if we use the above, we may need to set CURLOPT_MAXREDIRS
@@ -10,7 +9,7 @@
 $dst = substr(__FILE__, 0, -19) . 'xml/api-docs.xml';
 $url = 'http://jquery-api-browser.googlecode.com/svn/trunk/api-docs.xml';
 
-// move old docs
+// backup old docs in case there is a problem
 exec('mv ' . $dst . ' ' . $dst . '.bak');
 
 // get the file via curl

@@ -27,9 +27,12 @@ var DOCS = (function () {
 		@param obj obj
 	*/
 	_callback = function (obj) {
+		
+		DEBUG.reveal(obj);
+		
 		if (obj.outputString.indexOf('SUCCESS') > -1) {
 			// success
-			DOCS.init();
+			DOCS.init(true);
 			$('#ajax-loader').hide();
 		} else {
 			// error
@@ -39,22 +42,26 @@ var DOCS = (function () {
 	// public members
 	return {
 		/*	Initialise documentation by transforming the API XML to HTML and dumping it into container DIVs
+			@param boolean refresh True if we're just refreshing the docs, not rebuilding the whole UI
 		*/
-		init: function () {
+		init: function (refresh) {
 			var timer;
-			$('#nav').xslt(_urls.xml, _urls.xsl.nav, function () {
+			
+			// Execute transforms
+			$('#nav').empty().xslt(_urls.xml, _urls.xsl.nav, function () {
 				++_returns;
 			});
-			$('#main').xslt(_urls.xml, _urls.xsl.main, function () {
+			$('#main').empty().xslt(_urls.xml, _urls.xsl.main, function () {
 				++_returns;
 			});
-			$('#version').xslt(_urls.xml, _urls.xsl.version);
+			$('#version').empty().xslt(_urls.xml, _urls.xsl.version);
+			
 			// Initialise the UI once both XSLTs have returned
 			timer = setInterval(function () {
 				if (_returns > 1) {
 					clearInterval(timer);
 					_returns = 0; // reset value in case user updates docs
-					UI.init();
+					UI.init(refresh);
 				}
 			}, 20);
 		},
@@ -62,7 +69,11 @@ var DOCS = (function () {
 		*/
 		update: function () {
 			$('#ajax-loader').show();
-			WW.system(MAIN.base + '/Assets/php/update-docs.php', _callback);
+			WW.system("/usr/bin/php -f ./Assets/php/update-docs.php", _callback);
+			// this prevents display from getting munged, but i'd prefer not to have to do it
+			setTimeout(function () {
+				UI.showFront();
+			}, 250);
 		}
 	};
 })();
