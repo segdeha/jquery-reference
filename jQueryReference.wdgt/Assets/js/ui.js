@@ -160,15 +160,16 @@ var UI = (function () {
 				});
 			});
 			
+			// activate apple stuff
+			scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
+			scrollarea = new AppleScrollArea($('#main')[0]);
+			scrollarea.addScrollbar(scrollbar);
+			
 			// don't do these things if we're just refreshing the docs
 			if (true !== refresh) {
-				// activate apple stuff
 				flipper    = new AppleInfoButton($('#flipper')[0], $('#front')[0], WHITE, WHITE, UI.showBack);
 				done       = new AppleGlassButton($('#done-button')[0], __('Done'), UI.showFront);
 				donate     = new AppleGlassButton($('#donate-button')[0], __('Donate'), UTILS.gotoPayPal);
-				scrollbar  = new AppleVerticalScrollbar($('#scrollbar')[0]);
-				scrollarea = new AppleScrollArea($('#main')[0]);
-				scrollarea.addScrollbar(scrollbar);
 				
 				// activate show/hide docs toggle
 				$('a#resizer')
