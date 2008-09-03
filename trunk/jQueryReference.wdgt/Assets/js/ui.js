@@ -60,14 +60,20 @@ var UI = (function () {
 		Do this here so we can easily localise the strings.
 	*/
 	_writeUpdateBlurb = function () {
-		var tmpl;
-		tmpl = [
-			'<p>', __('Update to the latest version of the jQuery documentation.'), '</p>',
-			'<p><a onclick="DOCS.update();">', __('Update Now'), '</a></p>',
-			'<p>(', __('Requires internet connection.'), ')</p>',
-			'<div id="ajax-loader"></div>'
-		];
-		$('#update-docs').html(tmpl.join(''));
+		var tmpl, html;
+		
+		tmpl  = '<p>#{update-docs}</p>';
+		tmpl += '<p><a onclick="DOCS.update();">#{update-now}</a></p>';
+		tmpl += '<p>(#{requires})</p>';
+		tmpl += '<div id="ajax-loader"></div>';
+		
+		html  = $.tmpl(tmpl, {
+			'update-docs' : __('Update to the latest version of the jQuery documentation.'),
+			'update-now'  : __('Update Now'),
+			'requires'    : __('Requires internet connection.')
+		});
+		
+		$('#update-docs').html(html);
 	};
 	
 	/*	Build and display credits and jQuery propaganda
