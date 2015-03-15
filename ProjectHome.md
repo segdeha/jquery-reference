@@ -1,0 +1,1 @@
+Yeah, there already is a Dashboard widget that lets you look up jQuery methods. I wanted one that facilitates browsing, rather than searching, so I decided to write my own.
